@@ -8,17 +8,18 @@ ul, li, a, h1, h2, h3, h4 { margin:none;padding:none; }
 
 .header {
     text-align: center;
-    padding-top:45px;
+    padding-top:10%;
 }
 
 .header .title {
     color:white;
-    font-size:47pt;
+    font-size:89pt;
+    font-weight:100;
 }
 
 .footer {
     position:absolute;
-    bottom:25px;
+    bottom:45px;
     color:white;
     text-align:center;
     width:100%;
@@ -31,11 +32,11 @@ ul, li, a, h1, h2, h3, h4 { margin:none;padding:none; }
 .footer .social, a {
     color:white;
     text-decoration:none;
-    font-weight: bold;
+    font-weight:bold;
 }
 
 .footer .social li {
-    font-weight: 300;
+    font-weight:300;
     list-style: none;
     display:inline;
     margin-right:25px;
