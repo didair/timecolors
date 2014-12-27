@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Time in Colors</title>
+        
+        <link rel="stylesheet" href="style.css" type="text/css" />
+        <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    </head>
+    
+    <body>
+        <div class="header-container">
+            <h1 class="title" id="time">test</h1>
+        </div>
+        
+        <div class="footer-container">
+            <span id="color" class="current-color"></span>
+        </div>
+    </body>
+    
+    <script>
+        function startTime() {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            $('#time').html(h+":"+m+":"+s);
+            var t = setTimeout(function(){
+                startTime() },500);
+            
+            var color = "#"+h+m+s;
+            $("body").css({"backgroundColor":color});
+            $('#color').html(color);
+        }
+
+        function checkTime(i) {
+            if (i<10) {i = "0" + i};
+            return i;
+        }
+        
+        $(document).ready(function () {
+            startTime(); 
+        });
+    </script>
+</html>

@@ -1,0 +1,28 @@
+/* Fonts */
+@import url(http://fonts.googleapis.com/css?family=Roboto:300);
+
+/* Elements */ 
+html, body { width:100%;height:100%;
+font-family: 'Roboto', sans-serif; }
+
+.header-container {
+    text-align: center;
+    padding-top:45px;
+}
+
+.title {
+    color:white;
+    font-size:47pt;
+}
+
+.footer-container {
+    position:absolute;
+    bottom:25px;
+    color:white;
+    text-align:center;
+    width:100%;
+}
+
+.current-color {
+    font-size:21pt;
+}
