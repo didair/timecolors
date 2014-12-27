@@ -10,13 +10,14 @@
     </head>
     
     <body>
-        <div class="header">
-            <h1 class="title" id="time">test</h1>
-        </div>
+        <section id="main">
+            <div class="header">
+                <h1 class="title" id="time"></h1>
+                <div id="color" class="color"></div>
+            </div>
+        </section>
         
         <div class="footer">
-            <span id="color" class="color"></span>
-            
             <div class="social">
                 <ul>
                     <li>Fork on <a target="_blank" href="https://github.com/didair/timecolors">GitHub</a></li>
@@ -28,16 +29,10 @@
     
     <script type="text/javascript">
         function startTime() {
-            var today = new Date();
-            var h = today.getHours();
-            var m = today.getMinutes();
-            var s = today.getSeconds();
-            m = checkTime(m);
-            s = checkTime(s);
+            var today = new Date(); var h = today.getHours(); var m = today.getMinutes(); var s = today.getSeconds();
+            m = checkTime(m); s = checkTime(s);
             $('#time').html(h+" : "+m+" : "+s);
-            var t = setTimeout(function(){
-                startTime() },500);
-            
+            var t = setTimeout(function() { startTime() },500);  
             var color = "#"+h+m+s;
             $("body").css({"backgroundColor":color});
             $('#color').html(color);
@@ -49,7 +44,7 @@
         }
         
         $(document).ready(function () {
-            $("body").css({"transition": "all 0.8s", "-webkit-transition": "all 0.8s"});
+            $("body").css({"transition": "all 0.7s", "-webkit-transition": "all 0.7s"});
             startTime(); 
         });
     </script>
