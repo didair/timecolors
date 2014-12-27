@@ -12,6 +12,7 @@
     <body>
         <section id="main">
             <div class="header">
+                <p class="heading--title">Time <span class="bold">In</span> Colors</p>
                 <h1 class="title" id="time"></h1>
                 <div id="color" class="color"></div>
             </div>
@@ -29,10 +30,11 @@
     
     <script type="text/javascript">
         function startTime() {
-            var today = new Date(); var h = today.getHours(); var m = today.getMinutes(); var s = today.getSeconds();
-            m = checkTime(m); s = checkTime(s);
+            var today = new Date();var h = today.getHours();var m = today.getMinutes();var s = today.getSeconds();
+            m = checkTime(m);s = checkTime(s);
             $('#time').html(h+" : "+m+" : "+s);
-            var t = setTimeout(function() { startTime() },500);  
+            var t = setTimeout(function() { startTime() }, 500);
+            
             var color = "#"+h+m+s;
             $("body").css({"backgroundColor":color});
             $('#color').html(color);
