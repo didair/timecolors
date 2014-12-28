@@ -10,9 +10,9 @@
     <body>
         <section id="main">
             <div class="header">
-                <p class="heading--title">Time <span class="bold">In</span> Colors</p>
-                <h1 class="title" id="time"></h1>
-                <div id="color" class="color"></div>
+                <p class="title">Time <span class="bold">In</span> Colors</p>
+                <h1 class="time" id="time"></h1>
+                <div class="color" id="color"></div>
             </div>
         </section>
         
@@ -20,6 +20,7 @@
             <div class="social">
                 <ul>
                     <li>Fork on <a target="_blank" href="https://github.com/didair/timecolors">GitHub</a></li>
+                    <li>I am <a id="hack--btn">hacker</a></li>
                     <li>Made by Andreas Ekström</li>
                 </ul>
             </div>
@@ -27,14 +28,21 @@
     </body>
     
     <script type="text/javascript">
+        var hackmode = true;
+        
         function startTime() {
             var today = new Date();var h = today.getHours();var m = today.getMinutes();var s = today.getSeconds();
             h = checkTime(h); m = checkTime(m); s = checkTime(s);
-            $('#time').html(h+" : "+m+" : "+s);
-            var t = setTimeout(function() { startTime() }, 500);
             var color = "#"+h+m+s;
+            if(hackmode == false) {
+                $('#time').html(h+" : "+m+" : "+s);
+                $('#color').html(color);   
+            } else {
+                $('#time').html(color);
+                $('#color').html(h+" : "+m+" : "+s);
+            }
             $("body").css({"backgroundColor":color});
-            $('#color').html(color);
+            var t = setTimeout(function() { startTime() }, 500);
         }
 
         function checkTime(i) {
@@ -44,7 +52,15 @@
         
         $(document).ready(function () {
             $("body").css({"transition": "all 0.7s", "-webkit-transition": "all 0.7s"});
-            startTime(); 
+            startTime();
+            $('#hack--btn').click(function() {
+                if(hackmode == true) {
+                    hackmode = false;
+                } else {
+                    hackmode = true;
+                }
+                    startTime();
+            });
         });
     </script>
 </html>
