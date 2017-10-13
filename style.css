@@ -145,6 +145,10 @@ section#main {
     padding:10px;
 }
 
+.footer .social li #hack--btn {
+	cursor: pointer;
+}
+
     /* Media */
 
 @media (max-width:720px) {
