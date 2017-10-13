@@ -1,66 +1,68 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Time in Colors</title>
-        <link rel="stylesheet" href="style.css" type="text/css" />
-        <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-        <meta charset="utf-8">
-    </head>
-    
-    <body>
-        <section id="main">
-            <div class="header">
-                <p class="title">Time <span class="bold">In</span> Colors</p>
-                <h1 class="time" id="time"></h1>
-                <div class="color" id="color"></div>
-            </div>
-        </section>
-        
-        <div class="footer">
-            <div class="social">
-                <ul>
-                    <li>Fork on <a target="_blank" href="https://github.com/didair/timecolors">GitHub</a></li>
-                    <li>I am <a id="hack--btn">hacker</a></li>
-                    <li>Made by Andreas Ekström</li>
-                </ul>
-            </div>
-        </div>
-    </body>
-    
-    <script type="text/javascript">
-        var hackmode = false;
-        
-        function startTime() {
-            var today = new Date();var h = today.getHours();var m = today.getMinutes();var s = today.getSeconds();
-            h = checkTime(h); m = checkTime(m); s = checkTime(s);
-            var color = "#"+h+m+s;
-            if(hackmode == false) {
-                $('#time').html(h+" : "+m+" : "+s);
-                $('#color').html(color);   
-            } else {
-                $('#time').html(color);
-                $('#color').html(h+" : "+m+" : "+s);
-            }
-            $("body").css({"backgroundColor":color});
-            var t = setTimeout(function() { startTime() }, 500);
-        }
+	<head>
+		<title>Time in Colors</title>
+		<link rel="stylesheet" href="style.css" type="text/css" />
+		<meta charset="utf-8">
+	</head>
 
-        function checkTime(i) {
-            if (i<10) {i = "0" + i};
-            return i;
-        }
-        
-        $(document).ready(function () {
-            $("body").css({"transition": "all 0.7s", "-webkit-transition": "all 0.7s"});
-            startTime();
-            $('#hack--btn').click(function() {
-                if(hackmode == true) {
-                    hackmode = false;
-                } else {
-                    hackmode = true;
-                }
-                    startTime();
-            });
-        });
-    </script>
+	<body>
+		<section id="main">
+			<div class="header">
+				<p class="title">Time <span class="bold">In</span> Colors</p>
+				<h1 class="time" id="time"></h1>
+				<div class="color" id="color"></div>
+			</div>
+		</section>
+		
+		<div class="footer">
+			<div class="social">
+				<ul>
+					<li>Fork on <a target="_blank" href="https://github.com/didair/timecolors">GitHub</a></li>
+					<li>I am <a id="hack--btn">hacker</a></li>
+					<li>Made by <a target="_blank" href="http://aekstrom.me">Andreas Ekström</a></li>
+				</ul>
+			</div>
+		</div>
+	</body>
+
+	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript">
+		var hackmode = false;
+
+		function startTime() {
+			var today = new Date();var h = today.getHours();var m = today.getMinutes();var s = today.getSeconds();
+			h = checkTime(h); m = checkTime(m); s = checkTime(s);
+			var color = "#"+h+m+s;
+			if(hackmode == false) {
+				$('#time').html(h+" : "+m+" : "+s);
+				$('#color').html(color);
+			} else {
+				$('#time').html(color);
+				$('#color').html(h+" : "+m+" : "+s);
+			}
+
+			$("body").css({"backgroundColor":color});
+			var t = setTimeout(function() { startTime() }, 500);
+		}
+
+		function checkTime(i) {
+			if (i<10) {i = "0" + i};
+			return i;
+		}
+
+		$(document).ready(function () {
+			$("body").css({"transition": "all 0.7s", "-webkit-transition": "all 0.7s"});
+			startTime();
+
+			$('#hack--btn').click(function() {
+				if(hackmode == true) {
+					hackmode = false;
+				} else {
+					hackmode = true;
+				}
+					startTime();
+			});
+		});
+	</script>
 </html>
